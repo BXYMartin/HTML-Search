@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>搜索页面</title>
+<link rel="stylesheet" type="text/css" href="css/skel-noscript.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style-desktop.css">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="stylesheet" type="text/css" href="css/search-form.css">
+
+
+<script src="js/skel.min.js"></script>
+<script src="js/skel-panels.min.js"></script>
+		
+	
+</head>
+<body>
+	<form onsubmit="submitFn(this, event);">
+		<div class="search-wrapper">
+			<div class="input-holder">
+				<input type="text" class="search-input" placeholder="Type to search" id="focus"/>
+				<button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+			</div>
+			<span class="close" onclick="searchToggle(this, event);"></span>
+			<div class="result-container">
+			</div>
+		</div>
+	</form>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function searchToggle(obj, evt){
+		var container = $(obj).closest('.search-wrapper');
+		if(!container.hasClass('active')){
+			  container.addClass('active');
+			  document.getElementById('focus').focus();
+			  evt.preventDefault();
+		}
+		else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+			  container.removeClass('active');
+			  // clear input
+			  container.find('.search-input').val('');
+			  // clear and hide result container when we press close
+			  container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+		}
+	}
+	function submitFn(obj, evt){
+		value = $(obj).find('.search-input').val().trim();
+		_html = "Yep! You Searched this: ";
+		if(!value.length){
+			_html = "Yep! Add Some Text :D";
+		}
+		else{
+			_html += "<b>" + value + "</b>";
+		}
+		$(obj).find('.result-container').html('<span>' + _html + '</span>');
+		$(obj).find('.result-container').fadeIn(100);
+		evt.preventDefault();
+	}
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>不支持IE8及以下浏览器。</p>
+<br>
+<div id="header">
+			<div class="container"> 
+<div id="logo">
+	<h1><a href="#">DigExpert</a></h1>
+</div>
+</div>
+		</div>
+<br><br><br>
+		<!-- Footer -->
+		<div id="featured">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
+						<h2>Aenean elementum facilisis</h2>
+						<a href="#" class="image full"><img src="images/pic01.jpg" alt="" /></a>
+						<p>Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Quisque dictum. Pellentesque viverra vulputate enim.</p>
+						<p><a href="#" class="button">More Details</a></p>
+					</div>
+					<div class="4u">
+						<h2>Fusce ultrices fringilla</h2>
+						<a href="#" class="image full"><img src="images/pic02.jpg" alt="" /></a>
+						<p>Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Quisque dictum. Pellentesque viverra vulputate enim.</p>
+						<p><a href="#" class="button">More Details</a></p>
+					</div>
+					<div class="4u">
+						<h2>Etiam rhoncus volutpat erat</h2>
+						<a href="#" class="image full"><img src="images/pic03.jpg" alt="" /></a>
+						<p>Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. Quisque dictum. Pellentesque viverra vulputate enim.</p>
+						<p><a href="#" class="button">More Details</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
+						<section>
+							<h2>Latest Posts</h2>
+							<ul class="default">
+								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
+								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
+								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
+								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
+								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="4u">
+						<section>
+							<h2>Ultrices fringilla</h2>
+							<ul class="default">
+								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
+								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
+								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
+								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
+								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="4u">
+						<section>
+							<h2>Aenean elementum</h2>
+							<ul class="default">
+								<li><a href="#">Pellentesque lectus gravida blandit</a></li>
+								<li><a href="#">Lorem ipsum consectetuer adipiscing</a></li>
+								<li><a href="#">Phasellus nibh pellentesque congue</a></li>
+								<li><a href="#">Cras vitae metus aliquam pharetra</a></li>
+								<li><a href="#">Maecenas vitae orci feugiat eleifend</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>
